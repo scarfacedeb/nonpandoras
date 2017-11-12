@@ -9,18 +9,13 @@ defmodule NonpandorasWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", NonpandorasWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", NonpandorasWeb do
-  #   pipe_through :api
+  # scope "/admin", NonpandorasWeb.Admin do
+  #   pipe_through :browser
   # end
 end

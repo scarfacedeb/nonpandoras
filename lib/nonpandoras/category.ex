@@ -5,8 +5,8 @@ defmodule Nonpandoras.Category do
 
   alias Nonpandoras.{Artwork, Category}
 
-  schema "name" do
-    field :name, :string
+  schema "categories" do
+    # field :name, :string
     field :slug, :string
     field :image, Nonpandoras.Image.Type
     field :position, :integer
@@ -19,8 +19,8 @@ defmodule Nonpandoras.Category do
   @doc false
   def changeset(%Category{} = category, attrs) do
     category
-    |> cast(attrs, [:name, :slug, :position])
+    |> cast(attrs, [:slug, :position])
     |> cast_attachments(attrs, [:image])
-    |> validate_required([:name, :slug, :image])
+    |> validate_required([:slug, :image])
   end
 end

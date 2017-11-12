@@ -39,10 +39,11 @@ defmodule Nonpandoras.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:gettext, "~> 0.11"},
+      {:cowboy, "~> 1.0"},
       {:arc, "~> 0.8.0"},
       {:arc_ecto, "~> 0.7.0"},
-      {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:trans, "~> 2.0"},
     ]
   end
 
