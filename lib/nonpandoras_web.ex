@@ -40,6 +40,8 @@ defmodule NonpandorasWeb do
       import NonpandorasWeb.Router.Helpers
       import NonpandorasWeb.ErrorHelpers
       import NonpandorasWeb.Gettext
+
+      alias Nonpandoras.Image
     end
   end
 
