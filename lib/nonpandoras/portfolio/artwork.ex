@@ -1,11 +1,11 @@
-defmodule Nonpandoras.Artwork do
+defmodule Nonpandoras.Portfolio.Artwork do
   use Ecto.Schema
   use Arc.Ecto.Schema
   use Trans, translates: [:title, :subtitle, :description, :technique]
 
   import Ecto.Changeset
 
-  alias Nonpandoras.{Artwork, Category}
+  alias Nonpandoras.Portfolio.{Artwork, Category}
 
   schema "artworks" do
     field :title, :string, virtual: true
