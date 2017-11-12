@@ -22,6 +22,13 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Slim templates
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine
+
+config :phoenix_slime, :use_slim_extension, true
+
 # Storage
 config :arc,
   storage: Arc.Storage.Local
