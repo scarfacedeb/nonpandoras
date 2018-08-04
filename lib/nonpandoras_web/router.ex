@@ -10,12 +10,12 @@ defmodule NonpandorasWeb.Router do
   end
 
   scope "/", NonpandorasWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through(:browser)
 
-    get "/", PageController, :index
+    get "/", HomeController, :index
+
+    resources("/categories", CategoryController, only: [:show])
+    resources("/artworks", ArtworkController, only: [:show])
+    resources("/posts", PostController, only: [:index, :show])
   end
-
-  # scope "/admin", NonpandorasWeb.Admin do
-  #   pipe_through :browser
-  # end
 end

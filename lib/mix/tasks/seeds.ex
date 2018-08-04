@@ -16,7 +16,7 @@ defmodule Mix.Tasks.Nonpandoras.Seeds do
 
   defp upload_images do
     Path.join([@files_dir, "artworks", "*"])
-    |> Path.wildcard
+    |> Path.wildcard()
     |> Enum.map(&upload_image/1)
   end
 
@@ -26,9 +26,10 @@ defmodule Mix.Tasks.Nonpandoras.Seeds do
     filename = Path.basename(path)
     file = %Plug.Upload{filename: filename, path: path}
 
-    artwork = Artwork
-    |> where(fragment("image") == ^filename)
-    |> Repo.one()
+    artwork =
+      Artwork
+      |> where(fragment("image") == ^filename)
+      |> Repo.one()
 
     case artwork do
       nil -> IO.puts("No row for #{filename}")

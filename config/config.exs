@@ -14,8 +14,7 @@ config :nonpandoras, NonpandorasWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "YPc7WcnnhquYupl8Wy7AEzmnlz56MEd5gjE5VxAEOuon6PTZUfcHq8n7M4mxChoB",
   render_errors: [view: NonpandorasWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Nonpandoras.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Nonpandoras.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -35,4 +34,4 @@ config :arc,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

@@ -11,7 +11,7 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+// import "phoenix_html"
 
 // Import local files
 //
@@ -19,3 +19,26 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import Bricks from 'bricks.js';
+
+
+function ready(fn) {
+  if (document.readyState != "loading"){
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
+ready(() => {
+  // Bricks({
+  //   container: '.artworks',
+  //   packed: 'data-packed',
+  //   sizes: [
+  //     { columns: 3, gutter: 30 }
+  //   ],
+  //   position: false,
+  // }).pack();
+});
+

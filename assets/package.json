@@ -6,13 +6,31 @@
     "watch": "brunch watch --stdin"
   },
   "dependencies": {
+    "atvimg": "^0.0.4",
+    "bricks.js": "^1.8.0",
+    "normalize.css": "^7.0.0",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html"
   },
   "devDependencies": {
-    "babel-brunch": "6.1.1",
+    "auto-reload-brunch": "^2.7.1",
+    "autoprefixer": "^7.1.3",
+    "babel-brunch": "^6.1.1",
+    "babel-preset-env": "^1.6.1",
     "brunch": "2.10.9",
     "clean-css-brunch": "2.10.0",
+    "css-mqpacker": "^6.0.1",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "postcss-brunch": "^2.1.0",
+    "postcss-custom-properties": "^6.1.0",
+    "postcss-discard-empty": "^2.1.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-selector-matches": "^3.0.1",
+    "postcss-selector-not": "^3.0.1",
+    "stylelint-config-standard": "^17.0.0",
     "uglify-js-brunch": "2.10.0"
   }
 }

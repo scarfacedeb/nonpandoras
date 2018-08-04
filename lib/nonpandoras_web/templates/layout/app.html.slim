@@ -1,0 +1,20 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    title Nonpandoras
+    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/css/fonts_en.css")}"
+    script async=true src="#{static_path(@conn, "/js/app.js")}"
+  body
+    .layout
+      .layout__sidebar
+        = render LayoutView, "_sidebar.html", assigns
+      .layout__body
+        = get_flash(@conn, :info)
+        = get_flash(@conn, :error)
+        = render @view_module, @view_template, assigns

@@ -1,0 +1,12 @@
+h1= category_title(@category)
+
+.artworks
+  = for artwork <- @artworks do
+    article.artwork-item.artworks__item
+      = link to: artwork_path(@conn, :show, artwork.slug) do
+        = ArtworkView.artwork_image_tag artwork
+        h3.artwork-item__title= ArtworkView.artwork_title(artwork)
+
+.pagination
+  = link "Prev page", to: category_path(@conn, :show, @category.slug, page: ArtworkView.prev_page(@conn))
+  = link "Next page", to: category_path(@conn, :show, @category.slug, page: ArtworkView.next_page(@conn))

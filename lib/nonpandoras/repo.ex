@@ -1,11 +1,19 @@
 defmodule Nonpandoras.Repo do
   use Ecto.Repo, otp_app: :nonpandoras
+  require Ecto.Query
 
-  @doc """
-  Dynamically loads the repository url from the
-  DATABASE_URL environment variable.
-  """
-  def init(_, opts) do
-    {:ok, Keyword.put(opts, :url, System.get_env("DATABASE_URL"))}
+  @doc "Check if record exists"
+  @spec exists?(Ecto.Query.t()) :: boolean()
+  def exists?(queryable) do
+    query =
+      queryable
+      |> Ecto.Query.select(1)
+      |> Ecto.Query.limit(1)
+      |> Ecto.Queryable.to_query()
+
+    case all(query) do
+      [1] -> true
+      [] -> false
+    end
   end
 end

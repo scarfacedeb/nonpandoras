@@ -28,8 +28,9 @@ defmodule NonpandorasWeb do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/nonpandoras_web/templates",
-                        namespace: NonpandorasWeb
+      use Phoenix.View,
+        root: "lib/nonpandoras_web/templates",
+        namespace: NonpandorasWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -40,8 +41,15 @@ defmodule NonpandorasWeb do
       import NonpandorasWeb.Router.Helpers
       import NonpandorasWeb.ErrorHelpers
       import NonpandorasWeb.Gettext
+      import Trans.Translator
 
       alias Nonpandoras.Image
+
+      alias NonpandorasWeb.{
+        LayoutView,
+        ArtworkView,
+        CategoryView
+      }
     end
   end
 

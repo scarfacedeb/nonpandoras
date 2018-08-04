@@ -1,0 +1,25 @@
+.logo {
+  &, &:hover, &:focus {
+    color: #333;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 140px;
+    transition: transform .5s ease-in-out;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  h1 {
+    margin: 1em 0 .5em;
+    font-family: 'futura-pt', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

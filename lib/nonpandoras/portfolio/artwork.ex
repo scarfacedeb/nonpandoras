@@ -29,11 +29,12 @@ defmodule Nonpandoras.Portfolio.Artwork do
     timestamps()
   end
 
-  @doc false
+  @cast_attrs ~w[category_id slug is_published year dimensions framed_dimensions is_available price_kopeks translations]a
+  @required_attrs ~w[category_id slug image]a
   def changeset(%Artwork{} = artwork, attrs) do
     artwork
-    |> cast(attrs, [:category_id, :slug, :is_published, :year, :dimensions, :framed_dimensions, :is_available, :price_kopeks, :translations])
+    |> cast(attrs, @cast_attrs)
     |> cast_attachments(attrs, [:image])
-    |> validate_required([:category_id, :slug, :image])
+    |> validate_required(@required_attrs)
   end
 end

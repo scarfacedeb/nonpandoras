@@ -1,0 +1,9 @@
+.page.post
+  h1.page__title.post__title
+    = translate(@post, :title, :en)
+
+  .post__img
+    = post_image_tag(@post)
+
+  .post__body
+    = raw translate(@post, :body, :en)

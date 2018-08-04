@@ -1,0 +1,218 @@
+@import "../../common/css/reset.css";
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic|Bad+Script|Neucha|PT+Serif+Caption|Marck+Script|PT+Serif|EB+Garamond|Ledger|Yeseva+One|Ruslan+Display|Oranienbaum|Lobster|Russo+One&subset=latin,cyrillic);
+
+hr {
+	font-family: 'Yeseva One', cursive;
+	font-family: 'Ruslan Display', cursive;
+	font-family: 'Oranienbaum', serif;
+	font-family: 'Lobster', cursive;
+	font-family: 'Russo One', sans-serif;
+	font-family: 'Neucha', cursive;
+	font-family: 'PT Serif Caption', serif;
+	font-family: 'Marck Script', cursive;
+	font-family: 'PT Serif', serif;
+	font-family: 'EB Garamond', serif;
+	font-family: 'Ledger', serif;
+}
+
+body {
+	text-align: center;
+	background: #111;
+}
+
+
+h3 {
+	font-weight: normal;
+}
+
+a {
+	text-decoration: underline;
+	/*-webkit-transition: all 1s;
+	   -moz-transition: all 1s;
+	     -o-transition: all 1s;
+	     	transition: all 1s;*/
+}
+a:hover {
+	text-decoration: none; 
+}
+
+
+/* ==================== GENERAL ======================= */
+.chromeframe {
+    margin: -20px 10px 10px;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ============ HEADER ============ */
+header {
+	padding-bottom: 10px;
+	border-bottom: 5px solid #fff;
+	width:	1200px;
+	margin: 0 auto 0px;
+}
+	header h1 {
+		font-family: 'Oranienbaum', serif;
+		font-size: 30px;
+		text-align: left;
+		color: #fff;
+	}
+
+
+
+/* ====================== SLICES ======================== */
+.accord {
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	font-size: 0;
+}
+	.slice {
+		position: absolute;
+		top: 0;
+		z-index: 50;
+		display: inline-block;
+		width: 400px;
+		height: 676px;
+		overflow: hidden;
+		font-size: 14px;
+		cursor: pointer;
+	}
+
+	.sliceBg {
+		width: 400px;
+		-webkit-transition: all 1.5s;
+		   -moz-transition: all 1.5s;
+		     -o-transition: all 1.5s;
+		     	transition: all 1.5s;
+	}
+
+	/*#slice1 {
+		background-image: url(../images/accord2_01.jpg);
+	}
+	#slice2 {
+		background-image: url(../images/accord2_02.jpg);	
+	}
+	#slice3 {
+		background-image: url(../images/accord2_03.jpg);	
+	}*/
+	.s1 {
+		left: 0;
+	}
+	.s2 {
+		left: 400px;
+	}
+	.s3 {
+		left: 800px;
+	}
+
+
+	.slice:not(.selected):hover img {
+		-webkit-filter: grayscale(100%) sepia(100%) contrast(150%);
+	}
+	.slice:not(.selected):hover h3 {
+		background: rgba(50,50,50,0.4);
+		opacity: 0.9;
+	}
+
+
+		.slice h3 {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 30px;
+			z-index: 300;
+			/*height: 83px;*/
+			padding: 10px 10px 20px;
+			background: rgba(255,50,50,0.3);
+			font-family: 'Lobster', cursive;
+			font-size: 48px;
+			letter-spacing: 3px;
+			color: #fff;
+			opacity: 0.7;
+			text-shadow: 1px 1px 0 rgba(0,0,0,0.9);
+			text-shadow: 5px 3px 0 rgba(0, 0, 0, 0.9);
+			-webkit-transition: all 0.5s;
+			   -moz-transition: all 0.5s;
+			     -o-transition: all 0.5s;
+			     	transition: all 0.5s;
+		}
+
+	.selected h3 {
+		background: none;
+		font-size: 30px;
+	}
+			.slice h3 small {
+				display: block;
+				margin-top: 15px;
+				font-size: 20px;
+			}
+
+
+	
+		.menuOverlay {
+			display: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 48px;
+			z-index: 100;
+			width: 300px;
+			background: rgba(0,0,0,0.6);
+		}
+		.selected .menuOverlay {
+			display: block; 
+		}
+
+			.sliceMenu {
+				margin: 250px auto 0;
+				list-style-type: none;
+			}
+				.sliceMenu li {
+					margin: 10px 0;
+					font-family: 'Oranienbaum', serif;
+					font-size: 16px;
+					letter-spacing: 2px;
+				}
+					.sliceMenu a {
+						text-decoration: none;
+						color: #fff;
+					}
+
+
+	.contentWrapper {
+		/*position: absolute;
+		left: 399px;
+		top: 0;
+		bottom: 0;*/
+		display: inline-block;
+		width: 0;
+		height: 676px;
+		
+	}
+		
+
+
+	.selected {
+		left: 0;
+		z-index: 90;
+		-webkit-transition: all 3s;
+		   -moz-transition: all 3s;
+		     -o-transition: all 3s;
+		     	transition: all 3s;
+	}
+
+
+	.folded {
+		left: 0;
+		width: 0;
+	}
+		.folded h3 { display: none; }
+
+	
+	.unfolded {
+		width: 800px;
+	}

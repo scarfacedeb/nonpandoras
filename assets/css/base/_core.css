@@ -1,0 +1,45 @@
+*,
+*:before,
+*:after,
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: ff-tisa-web-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  background: #fcfcfc;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #0277b6;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: #86D4FE;
+  }
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+}
+
+h1 {
+  font-family: 'futura-pt', Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+}

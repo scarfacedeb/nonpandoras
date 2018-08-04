@@ -1,0 +1,7 @@
+.post-item {
+  &__img {
+    img {
+      max-width: 200px;
+    }
+  }
+}

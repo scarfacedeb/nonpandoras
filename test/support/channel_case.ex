@@ -25,13 +25,13 @@ defmodule NonpandorasWeb.ChannelCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Nonpandoras.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Nonpandoras.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

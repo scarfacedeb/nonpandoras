@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'futura-pt-condensed';
+  src: url('/fonts/ru/futura_pt_condensed.400.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt_condensed.400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-pt-condensed';
+  src: url('/fonts/ru/futura_pt_condensed.500.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt_condensed.500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-pt';
+  src: url('/fonts/ru/futura_pt.300.italic.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt.300.italic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'futura-pt';
+  src: url('/fonts/ru/futura_pt.300.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt.300.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-pt';
+  src: url('/fonts/ru/futura_pt.400.italic.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt.400.italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'futura-pt';
+  src: url('/fonts/ru/futura_pt.400.woff2') format('woff2'),
+  url('/fonts/ru/futura_pt.400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}

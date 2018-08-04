@@ -1,0 +1,38 @@
+.artwork
+  .artwork__layout
+    .artwork__body-block
+      h1.artwork__title
+        = translate(@artwork, :title, :en)
+        div.artwork__subtitle
+          = translate(@artwork, :subtitle, :en)
+
+      section.artwork__desc
+        = raw translate(@artwork, :description, :en)
+
+      section.artwork__meta
+        dl
+          dt= "Year"
+          dd= @artwork.year
+
+          dt= "Technique"
+          dd= translate(@artwork, :technique, :en)
+
+          dt= "Dimensions"
+          dd.artwork__dimensions
+            = @artwork.dimensions
+            span= " (not framed)"
+          dd.artwork__dimensions
+            = @artwork.framed_dimensions
+            span= " (framed)"
+
+    .artwork__img-block
+      = if @prev_artwork do
+        = link to: artwork_path(@conn, :show, @prev_artwork.slug), class: "artwork__nav artwork__nav--prev" do
+          = img_tag "/images/arrow.svg", alt: "Previous"
+
+      .artwork__img
+        = artwork_image_tag(@artwork)
+
+      = if @next_artwork do
+        = link to: artwork_path(@conn, :show, @next_artwork.slug), class: "artwork__nav artwork__nav--next" do
+          = img_tag "/images/arrow.svg", alt: "Next"

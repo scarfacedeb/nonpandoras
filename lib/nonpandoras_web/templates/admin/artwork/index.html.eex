@@ -1,0 +1,24 @@
+<h2>Listing Artworks</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for artwork <- @artworks do %>
+    <tr>
+
+      <td class="text-right">
+        <span><%= link "Show", to: artwork_path(@conn, :show, artwork), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: artwork_path(@conn, :edit, artwork), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: artwork_path(@conn, :delete, artwork), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Artwork", to: artwork_path(@conn, :new) %></span>
