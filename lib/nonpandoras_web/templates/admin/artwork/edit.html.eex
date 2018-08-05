@@ -1,5 +1,0 @@
-<h2>Edit Artwork</h2>
-
-<%= render "form.html", Map.put(assigns, :action, artwork_path(@conn, :update, @artwork)) %>
-
-<span><%= link "Back", to: artwork_path(@conn, :index) %></span>

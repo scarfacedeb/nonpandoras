@@ -1,0 +1,5 @@
+h2 Edit Artwork
+
+= render "form.html", Map.put(assigns, :action, Routes.admin_artwork_path(@conn, :update, @artwork))
+
+= link "Back", to: Routes.admin_artwork_path(@conn, :index)

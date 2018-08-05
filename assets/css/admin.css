@@ -1,0 +1,122 @@
+h2 {
+  font-family: 'futura-pt', Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 3px;
+  background: #fff;
+  padding: .5em 1em;
+  font-size: 14px;
+  color: #333;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+  &--primary {
+    color: #0277b6;
+  }
+
+  &--danger {
+    color: #ee1122;
+  }
+
+  & + & {
+    margin-left: .5em;
+  }
+}
+
+.admin-toolbar {
+  margin-bottom: 2.5em;
+}
+
+.admin-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  th {
+    padding: 1em 1em;
+    border-bottom: 2px solid #ddd;
+    text-align: left;
+  }
+
+  td {
+    padding: .5em 1em;
+    border-bottom: 1px solid #ddd;
+  }
+
+  img {
+    width: 120px;
+  }
+}
+
+.admin-form {
+  margin-bottom: 1.5em;
+
+  &__fieldsets {
+    display: flex;
+  }
+
+  &__fieldset {
+    flex: 1;
+    margin-bottom: 1.5em;
+    border: 1px solid #eee;
+
+    & + & {
+      margin-left: 1.5em;
+    }
+
+    .admin-field {
+      display: block;
+    }
+
+    .admin-field__label {
+      display: block;
+      margin-bottom: .5em;
+    }
+
+    .admin-field__input {
+      width: 100%;
+    }
+  }
+}
+
+.admin-field {
+  margin-bottom: 1.5em;
+  display: flex;
+  align-items: center;
+
+  textarea {
+    min-height: 15em;;
+  }
+
+  .help-block {
+    display: block;
+    margin-top: .5em;
+    color: #ff1111;
+  }
+
+  &__label {
+    flex: 0 0 10em;
+    margin-right: 1.5em;
+    vertical-align: top;
+    font-weight: 16px;
+    font-weight: 600;
+  }
+
+  &__input {
+    min-width: 15em;
+    padding: .5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+
+    &[type=file] {
+      border: none;
+    }
+  }
+}

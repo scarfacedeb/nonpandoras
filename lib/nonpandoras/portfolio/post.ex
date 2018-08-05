@@ -5,6 +5,7 @@ defmodule Nonpandoras.Portfolio.Post do
 
   import Ecto.Changeset
 
+  @derive {Phoenix.Param, key: :slug}
   schema "posts" do
     field :title, :string, virtual: true
     field :summary, :string, virtual: true

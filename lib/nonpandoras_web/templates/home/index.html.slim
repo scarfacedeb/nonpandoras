@@ -1,5 +1,0 @@
-= for category <- @categories do
-  article.category
-    = link to: category_path(@conn, :show, category.slug) do
-      = CategoryView.category_image_tag(category)
-      = CategoryView.category_title(category)

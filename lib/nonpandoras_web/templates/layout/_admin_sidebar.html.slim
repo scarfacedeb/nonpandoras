@@ -1,0 +1,10 @@
+= link to: Routes.home_path(@conn, :index), class: "logo" do
+  = img_tag "/images/logo.svg", alt: "Nonpandoras"
+  h1= "ADMIN"
+
+ul.nav
+  li.nav__link= link "Artworks", to: Routes.admin_artwork_path(@conn, :index)
+  li.nav__link= link "Audio", to: "#"
+  li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)
+  li.nav__link= link "Pages", to: "#"
+  li.nav__link= link "Sign Out", to: "#"

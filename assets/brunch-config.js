@@ -3,10 +3,12 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: 'js/app.js',
+      joinTo: 'js/admin.js'
     },
     stylesheets: {
       joinTo: {
         'css/app.css': 'css/app.css',
+        'css/admin.css': 'css/admin.css',
         'css/fonts_en.css': 'css/fonts_en.css',
         'css/fonts_ru.css': 'css/fonts_ru.css',
       },
@@ -55,6 +57,7 @@ exports.config = {
   modules: {
     autoRequire: {
       'js/app.js': ['js/app'],
+      'js/admin.js': ['js/admin'],
     },
   },
 

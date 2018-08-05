@@ -2,7 +2,7 @@ defmodule NonpandorasWeb.ArtworkView do
   use NonpandorasWeb, :view
 
   def artwork_image_tag(%{image: image} = artwork) do
-    img_tag(Image.url(image), alt: artwork_title(artwork))
+    img_tag(Image.url({artwork.image, artwork}), alt: artwork_title(artwork))
   end
 
   def artwork_title(artwork) do

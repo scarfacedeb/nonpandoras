@@ -7,13 +7,14 @@ html lang="en"
     meta content="" name="description"
     meta content="" name="author"
     title Nonpandoras
-    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
+    link async=true rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
+    link async=true rel="stylesheet" href="#{Routes.static_path(@conn, "/css/admin.css")}"
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/fonts_en.css")}"
-    script async=true src="#{Routes.static_path(@conn, "/js/app.js")}"
+    script async=true src="#{Routes.static_path(@conn, "/js/admin.js")}"
   body
     .layout
-      .layout__sidebar
-        = render LayoutView, "_sidebar.html", assigns
+      .layout__sidebar.layout__sidebar--admin
+        = render LayoutView, "_admin_sidebar.html", assigns
       .layout__body
         = get_flash(@conn, :info)
         = get_flash(@conn, :error)

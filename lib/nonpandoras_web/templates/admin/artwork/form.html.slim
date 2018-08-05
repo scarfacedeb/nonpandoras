@@ -1,0 +1,33 @@
+= form_for @changeset, @action, [class: "admin-form", multipart: true], fn f ->
+  = if @changeset.action do
+    .alert.alert-danger
+      p Oops, something went wrong! Please check the errors below.
+
+  = inspect(f.source)
+  .admin-form__fieldsets
+    = translations_for f, fn ft ->
+      fieldset.admin-form__fieldset
+        legend= ft.data.locale
+
+        = input ft, :title
+        = input ft, :subtitle
+        = input ft, :description, using: :textarea
+        = input ft, :technique
+
+  = input f, :category_id, using: :select, options: category_options()
+  = input f, :slug
+
+  .admin-field
+    = label f, :image, class: "admin-field__label"
+    .admin-field__body
+      div= artwork_image_tag(f.source.data)
+      = file_input f, :image, class: "admin-field__input"
+      = error_tag f, :image
+
+  = input f, :year
+
+  = input f, :dimensions
+  = input f, :framed_dimensions
+
+  .admin-form__actions
+    = submit "Submit", class: "btn btn--primary"

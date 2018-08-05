@@ -1,13 +1,13 @@
-= link to: home_path(@conn, :index), class: "logo" do
+= link to: Routes.home_path(@conn, :index), class: "logo" do
   = img_tag "/images/logo.svg", alt: "Nonpandoras"
   h1= "Nonpandoras"
 
 ul.nav
   = for category <- Nonpandoras.Portfolio.get_categories() do
     li.nav__link
-      = link to: category_path(@conn, :show, category.slug) do
+      = link to: Routes.category_path(@conn, :show, category.slug) do
         = CategoryView.category_title(category)
 
   li.nav__link= link "Audio", to: "#"
-  li.nav__link= link "Blog", to: post_path(@conn, :index)
+  li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)
   li.nav__link= link "Contacts", to: "#"

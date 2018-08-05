@@ -7,12 +7,13 @@ defmodule Nonpandoras.Portfolio.Artwork do
 
   alias Nonpandoras.Portfolio.{Artwork, Category}
 
+  @derive {Phoenix.Param, key: :slug}
   schema "artworks" do
     field :title, :string, virtual: true
     field :subtitle, :string, virtual: true
     field :description, :string, virtual: true
     field :technique, :string, virtual: true
-    field :translations, :map
+    field :translations, :map, default: %{}
 
     field :slug, :string
     field :is_published, :boolean, default: true

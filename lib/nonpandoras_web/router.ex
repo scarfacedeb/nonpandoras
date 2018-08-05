@@ -10,12 +10,22 @@ defmodule NonpandorasWeb.Router do
   end
 
   scope "/", NonpandorasWeb do
-    pipe_through(:browser)
+    pipe_through :browser
 
     get "/", HomeController, :index
 
-    resources("/categories", CategoryController, only: [:show])
-    resources("/artworks", ArtworkController, only: [:show])
-    resources("/posts", PostController, only: [:index, :show])
+    resources "/categories", CategoryController, only: [:show]
+    resources "/artworks", ArtworkController, only: [:show]
+    resources "/posts", PostController, only: [:index, :show]
+  end
+
+  scope "/admin", NonpandorasWeb.Admin, as: :admin do
+    pipe_through :browser
+
+    get "/", HomeController, :index
+
+    resources "/artworks", ArtworkController
+    # resources "/categories", CategoryController, only: [:show]
+    # resources "/posts", PostController, only: [:index, :show]
   end
 end
