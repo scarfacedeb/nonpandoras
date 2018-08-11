@@ -1,6 +1,6 @@
 @import "normalize.css";
-
 @import "base/core";
+@import "fonts_en";
 
 @import "components/layout";
 @import "components/logo";
