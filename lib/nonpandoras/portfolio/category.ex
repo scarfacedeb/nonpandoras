@@ -1,16 +1,14 @@
 defmodule Nonpandoras.Portfolio.Category do
   use Ecto.Schema
   use Arc.Ecto.Schema
-  use Trans, translates: [:title, :description]
 
   import Ecto.Changeset
 
   alias Nonpandoras.Portfolio.{Artwork, Category}
 
   schema "categories" do
-    field :title, :string, virtual: true
-    field :description, :string, virtual: true
-    field :translations, :map
+    field :title, :string
+    field :description, :string
 
     field :slug, :string
     field :image, Nonpandoras.Image.Type
@@ -21,8 +19,8 @@ defmodule Nonpandoras.Portfolio.Category do
     timestamps()
   end
 
-  @cast_attrs ~w[slug position translations]a
-  @required_attrs ~w[slug image]a
+  @cast_attrs ~w[slug position title description]a
+  @required_attrs ~w[slug image title]a
   def changeset(%Category{} = category, attrs) do
     category
     |> cast(attrs, @cast_attrs)

@@ -4,25 +4,13 @@ defmodule NonpandorasWeb.PostView do
   def post_image_tag(%{image: image} = post) do
     img_tag(
       Image.url("Image-000#{Enum.random([1,2,3,4,5,6])}.png?63677739391"),
-      alt: translate(post, :title, :en),
+      alt: post.title,
       width: "300px"
     )
   end
 
-  def post_summary(post) do
-    case translate(post, :summary, :en) do
-      "" ->
-        # summary_from_body(post)
-        ""
-
-      summary ->
-        summary
-    end
-  end
-
-  defp summary_from_body(post) do
-    post
-    |> translate(:body, :en)
+  def summary_from_body(post) do
+    post.body
     |> Floki.find("p")
     |> List.first()
     |> raw_html()

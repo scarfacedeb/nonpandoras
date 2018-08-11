@@ -5,8 +5,7 @@
         = link to: Routes.post_path(@conn, :show, post.slug) do
           = post_image_tag(post)
       h3.post-item__title
-        = link to: Routes.post_path(@conn, :show, post.slug) do
-          = translate(post, :title, :en)
-      .post-item__summary= post_summary(post)
+        = link post.title, to: Routes.post_path(@conn, :show, post.slug)
+      .post-item__summary= post.summary
       .post-item__published= post.published_at
 

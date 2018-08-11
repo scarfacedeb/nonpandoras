@@ -4,8 +4,8 @@ defmodule NonpandorasWeb.Admin.ArtworkView do
 
   def artwork_image_tag(%{image: nil}), do: nil
 
-  def artwork_image_tag(%{image: image} = artwork) do
-    img_tag(Image.url({artwork.image, artwork}, :thumb), alt: translate(artwork, :title, :en))
+  def artwork_image_tag(artwork) do
+    img_tag(Image.url({artwork.image, artwork}, :thumb), alt: artwork.title)
   end
 
   defdelegate category_options(), to: Nonpandoras.Admin

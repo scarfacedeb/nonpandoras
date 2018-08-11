@@ -16,7 +16,7 @@ table.admin-table
     = for artwork <- @artworks do
       tr
         td= artwork_image_tag(artwork)
-        td= translate(artwork, :title, :en)
+        td= artwork.title
         td= artwork.year
         td= artwork.slug
         td= artwork.is_published

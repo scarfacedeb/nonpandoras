@@ -41,7 +41,6 @@ config :nonpandoras, NonpandorasWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
       ~r{lib/nonpandoras_web/views/.*(ex)$},
       ~r{lib/nonpandoras_web/templates/.*(eex|slim|slime)$}
     ]

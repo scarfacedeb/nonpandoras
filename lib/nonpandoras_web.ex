@@ -21,7 +21,6 @@ defmodule NonpandorasWeb do
     quote do
       use Phoenix.Controller, namespace: NonpandorasWeb
       import Plug.Conn
-      import NonpandorasWeb.Gettext
       alias NonpandorasWeb.Router.Helpers, as: Routes
     end
   end
@@ -39,9 +38,6 @@ defmodule NonpandorasWeb do
       use Phoenix.HTML
 
       import NonpandorasWeb.ErrorHelpers
-      import NonpandorasWeb.Gettext
-      import NonpandorasWeb.TranslationForm
-      import Trans.Translator
 
       alias NonpandorasWeb.Router.Helpers, as: Routes
       alias Nonpandoras.Image
@@ -65,7 +61,6 @@ defmodule NonpandorasWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import NonpandorasWeb.Gettext
     end
   end
 

@@ -7,7 +7,7 @@ defmodule Nonpandoras.Mixfile do
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -40,11 +40,9 @@ defmodule Nonpandoras.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_slime, "~> 0.9"},
-      {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:arc, "~> 0.8"},
       {:arc_ecto, "~> 0.7"},
-      {:trans, "~> 2.0"},
       {:floki, "~> 0.20"}
     ]
   end

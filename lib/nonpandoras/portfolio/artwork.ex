@@ -1,7 +1,6 @@
 defmodule Nonpandoras.Portfolio.Artwork do
   use Ecto.Schema
   use Arc.Ecto.Schema
-  use Trans, translates: [:title, :subtitle, :description, :technique]
 
   import Ecto.Changeset
 
@@ -9,18 +8,18 @@ defmodule Nonpandoras.Portfolio.Artwork do
 
   @derive {Phoenix.Param, key: :slug}
   schema "artworks" do
-    field :title, :string, virtual: true
-    field :subtitle, :string, virtual: true
-    field :description, :string, virtual: true
-    field :technique, :string, virtual: true
-    field :translations, :map, default: %{}
+    field :title, :string
+    field :subtitle, :string
+    field :description, :string
+
+    field :year, :string
+    field :technique, :string
+    field :dimensions, :string
+    field :framed_dimensions, :string
 
     field :slug, :string
     field :is_published, :boolean, default: true
     field :image, Nonpandoras.Image.Type
-    field :year, :string
-    field :dimensions, :string
-    field :framed_dimensions, :string
 
     field :is_available, :boolean, default: false
     field :price_kopeks, :integer
@@ -30,8 +29,8 @@ defmodule Nonpandoras.Portfolio.Artwork do
     timestamps()
   end
 
-  @cast_attrs ~w[category_id slug is_published year dimensions framed_dimensions is_available price_kopeks translations]a
-  @required_attrs ~w[category_id slug image]a
+  @cast_attrs ~w[category_id slug is_published year dimensions framed_dimensions is_available price_kopeks title subtitle description technique]a
+  @required_attrs ~w[category_id slug image title]a
   def changeset(%Artwork{} = artwork, attrs) do
     artwork
     |> cast(attrs, @cast_attrs)

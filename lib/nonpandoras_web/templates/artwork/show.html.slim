@@ -2,12 +2,12 @@
   .artwork__layout
     .artwork__body-block
       h1.artwork__title
-        = translate(@artwork, :title, :en)
+        = @artwork.title
         div.artwork__subtitle
-          = translate(@artwork, :subtitle, :en)
+          = @artwork.subtitle
 
       section.artwork__desc
-        = raw translate(@artwork, :description, :en)
+        = raw @artwork.description
 
       section.artwork__meta
         dl
@@ -15,7 +15,7 @@
           dd= @artwork.year
 
           dt= "Technique"
-          dd= translate(@artwork, :technique, :en)
+          dd= @artwork.technique
 
           dt= "Dimensions"
           dd.artwork__dimensions

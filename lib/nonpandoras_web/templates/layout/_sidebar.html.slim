@@ -5,8 +5,7 @@
 ul.nav
   = for category <- Nonpandoras.Portfolio.get_categories() do
     li.nav__link
-      = link to: Routes.category_path(@conn, :show, category.slug) do
-        = CategoryView.category_title(category)
+      = link category.title, to: Routes.category_path(@conn, :show, category.slug)
 
   li.nav__link= link "Audio", to: "#"
   li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)

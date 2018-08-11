@@ -3,16 +3,9 @@
     .alert.alert-danger
       p Oops, something went wrong! Please check the errors below.
 
-  = inspect(f.source)
-  .admin-form__fieldsets
-    = translations_for f, fn ft ->
-      fieldset.admin-form__fieldset
-        legend= ft.data.locale
-
-        = input ft, :title
-        = input ft, :subtitle
-        = input ft, :description, using: :textarea
-        = input ft, :technique
+  = input f, :title
+  = input f, :subtitle
+  = input f, :description, using: :textarea
 
   = input f, :category_id, using: :select, options: category_options()
   = input f, :slug
@@ -25,6 +18,7 @@
       = error_tag f, :image
 
   = input f, :year
+  = input f, :technique
 
   = input f, :dimensions
   = input f, :framed_dimensions

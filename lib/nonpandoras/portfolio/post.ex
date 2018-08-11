@@ -1,16 +1,14 @@
 defmodule Nonpandoras.Portfolio.Post do
   use Ecto.Schema
   use Arc.Ecto.Schema
-  use Trans, translates: [:title, :summary, :body]
 
   import Ecto.Changeset
 
   @derive {Phoenix.Param, key: :slug}
   schema "posts" do
-    field :title, :string, virtual: true
-    field :summary, :string, virtual: true
-    field :body, :string, virtual: true
-    field :translations, :map
+    field :title, :string
+    field :summary, :string
+    field :body, :string
 
     field :slug, :string
     field :image, Nonpandoras.Image.Type
@@ -22,8 +20,8 @@ defmodule Nonpandoras.Portfolio.Post do
     timestamps()
   end
 
-  @cast_attrs ~w[translations slug is_published is_homepage published_at]a
-  @required_attrs ~w[slug]a
+  @cast_attrs ~w[title summary body slug is_published is_homepage published_at]a
+  @required_attrs ~w[slug title image]a
   def changeset(%__MODULE__{} = post, attrs) do
     post
     |> cast(attrs, @cast_attrs)
