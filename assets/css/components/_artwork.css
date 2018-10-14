@@ -1,5 +1,6 @@
 .artworks {
   column-gap: 4em;
+  margin-top: -.5em;
 
   @media (min-width: 480px) {
     column-count: 2;
@@ -20,7 +21,7 @@
 }
 
 .artwork-item {
-  padding-bottom: 3em;
+  padding: 1em 0 2em;
 
   &:hover, &:focus {
     img {
