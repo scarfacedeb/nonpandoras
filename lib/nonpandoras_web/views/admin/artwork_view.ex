@@ -8,5 +8,5 @@ defmodule NonpandorasWeb.Admin.ArtworkView do
     img_tag(Image.url({artwork.image, artwork}, :thumb), alt: artwork.title)
   end
 
-  defdelegate category_options(), to: Nonpandoras.Admin
+  defdelegate category_options(), to: Nonpandoras.Admin.Artworks
 end

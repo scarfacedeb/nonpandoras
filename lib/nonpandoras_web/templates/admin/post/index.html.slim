@@ -1,0 +1,32 @@
+h2 Posts
+
+.admin-toolbar
+  = link "New Post", to: Routes.admin_post_path(@conn, :new)
+
+table.admin-table
+  thead
+    tr
+      th Image
+      th Title
+      th Summary
+      th Slug
+      th Homepage
+      th Published
+      th Published At
+      th
+  tbody
+    = for post <- @posts do
+      tr
+        td
+          = link to: Routes.admin_post_path(@conn, :edit, post) do
+            = post_image_tag(post)
+        td= post.title
+        td= post.summary
+        td= post.slug
+        td= post.is_homepage
+        td= post.is_published
+        td= post.published_at
+        td.admin-table__actions
+          = link "Show", to: Routes.post_path(@conn, :show, post), class: "btn"
+          = link "Edit", to: Routes.admin_post_path(@conn, :edit, post), class: "btn"
+          = link "Delete", to: Routes.admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn--danger"

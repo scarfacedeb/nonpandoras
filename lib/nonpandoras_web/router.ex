@@ -25,7 +25,7 @@ defmodule NonpandorasWeb.Router do
     get "/", HomeController, :index
 
     resources "/artworks", ArtworkController
-    # resources "/categories", CategoryController, only: [:show]
-    # resources "/posts", PostController, only: [:index, :show]
+    resources "/categories", CategoryController
+    resources "/posts", PostController
   end
 end

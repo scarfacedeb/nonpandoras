@@ -6,10 +6,6 @@
 @import "components/logo";
 @import "components/nav";
 
-h1 {
-  color: red;
-}
-
 h2 {
   font-family: 'futura-pt', Helvetica, Arial, sans-serif;
   font-size: 48px;
@@ -47,6 +43,7 @@ h2 {
 }
 
 .admin-table {
+  width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 

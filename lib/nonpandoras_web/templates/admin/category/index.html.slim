@@ -1,0 +1,26 @@
+h2 Categories
+
+.admin-toolbar
+  = link "New Category", to: Routes.admin_category_path(@conn, :new)
+
+table.admin-table
+  thead
+    tr
+      th Image
+      th Title
+      th Slug
+      th Position
+      th
+  tbody
+    = for category <- @categories do
+      tr
+        td
+          = link to: Routes.admin_category_path(@conn, :edit, category) do
+            = category_image_tag(category)
+        td= category.title
+        td= category.slug
+        td= category.position
+        td.admin-table__actions
+          = link "Show", to: Routes.category_path(@conn, :show, category), class: "btn"
+          = link "Edit", to: Routes.admin_category_path(@conn, :edit, category), class: "btn"
+          = link "Delete", to: Routes.admin_category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn--danger"

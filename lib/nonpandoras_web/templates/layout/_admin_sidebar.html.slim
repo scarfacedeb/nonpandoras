@@ -4,7 +4,8 @@
 
 ul.nav
   li.nav__link= link "Artworks", to: Routes.admin_artwork_path(@conn, :index)
+  li.nav__link= link "Categories", to: Routes.admin_category_path(@conn, :index)
   li.nav__link= link "Audio", to: "#"
-  li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)
+  li.nav__link= link "Blog", to: Routes.admin_post_path(@conn, :index)
   li.nav__link= link "Pages", to: "#"
   li.nav__link= link "Sign Out", to: "#"

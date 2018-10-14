@@ -6,6 +6,7 @@ defmodule Nonpandoras.Portfolio.Category do
 
   alias Nonpandoras.Portfolio.{Artwork, Category}
 
+  @derive {Phoenix.Param, key: :slug}
   schema "categories" do
     field :title, :string
     field :description, :string

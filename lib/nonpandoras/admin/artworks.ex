@@ -1,4 +1,4 @@
-defmodule Nonpandoras.Admin do
+defmodule Nonpandoras.Admin.Artworks do
   @moduledoc """
   The Admin context.
   """
@@ -27,7 +27,6 @@ defmodule Nonpandoras.Admin do
 
   @doc "Updates a artwork."
   def update_artwork(%Artwork{} = artwork, attrs) do
-    IO.inspect(attrs)
     artwork
     |> Artwork.changeset(attrs)
     |> Repo.update()
@@ -46,6 +45,6 @@ defmodule Nonpandoras.Admin do
   def category_options do
     Category
     |> Ecto.Query.select([c], {c.slug, c.id})
-    |> Repo.all
+    |> Repo.all()
   end
 end

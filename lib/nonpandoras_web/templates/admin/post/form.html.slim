@@ -1,0 +1,23 @@
+= form_for @changeset, @action, [class: "admin-form", multipart: true], fn f ->
+  = if @changeset.action do
+    .alert.alert-danger
+      p Oops, something went wrong! Please check the errors below.
+
+  = input f, :title
+  = input f, :summary
+  = input f, :body, using: :markdown
+
+  = input f, :slug
+
+  .admin-field
+    = label f, :image, class: "admin-field__label"
+    .admin-field__body
+      div= post_image_tag(f.source.data)
+      = file_input f, :image, class: "admin-field__input"
+      = error_tag f, :image
+
+  = input f, :is_published
+  = input f, :is_homepage
+
+  .admin-form__actions
+    = submit "Submit", class: "btn btn--primary"

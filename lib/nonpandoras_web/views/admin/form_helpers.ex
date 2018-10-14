@@ -48,6 +48,6 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
   end
 
   defp add_class(opts, class) do
-    Keyword.update(opts, :class, "", &[&1, class])
+    Keyword.update(opts, :class, class, &(&1 <> " " <> class))
   end
 end
