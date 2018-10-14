@@ -2,12 +2,12 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
   use Phoenix.HTML
 
   def input(form, field, opts \\ []) do
-    type = opts[:using] || Phoenix.HTML.Form.input_type(form, field)
+    {type, opts} = Keyword.pop(opts, :using, Phoenix.HTML.Form.input_type(form, field))
 
     wrapper_opts = [class: "admin-field #{state_class(form, field)}"]
     control_opts = [class: "admin-field__control"]
     label_opts = [class: "admin-field__label"]
-    input_opts = opts ++ [class: "admin-field__input"]
+    input_opts = add_class(opts, "admin-field__input")
 
     content_tag :div, wrapper_opts do
       label = label(form, field, humanize(field), label_opts)
@@ -23,6 +23,21 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
     end
   end
 
+  # Implement clauses below for custom inputs.
+  defp input(:select, form, field, input_opts) do
+    {options, input_opts} = Keyword.pop(input_opts, :options, [])
+    apply(Phoenix.HTML.Form, :select, [form, field, options, input_opts])
+  end
+
+  defp input(:markdown, form, field, input_opts) do
+    input_opts = input_opts |> add_class("editor")
+    apply(Phoenix.HTML.Form, :textarea, [form, field, input_opts])
+  end
+
+  defp input(type, form, field, input_opts) do
+    apply(Phoenix.HTML.Form, type, [form, field, input_opts])
+  end
+
   defp state_class(form, field) do
     cond do
       # The form was not yet submitted
@@ -32,13 +47,7 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
     end
   end
 
-  # Implement clauses below for custom inputs.
-  defp input(:select, form, field, input_opts) do
-    {options, input_opts} = Keyword.pop(input_opts, :options, [])
-    apply(Phoenix.HTML.Form, :select, [form, field, options, input_opts])
-  end
-
-  defp input(type, form, field, input_opts) do
-    apply(Phoenix.HTML.Form, type, [form, field, input_opts])
+  defp add_class(opts, class) do
+    Keyword.update(opts, :class, "", &[&1, class])
   end
 end
