@@ -3,12 +3,11 @@
     .alert.alert-danger
       p Oops, something went wrong! Please check the errors below.
 
+  = input f, :category_id, using: :select, options: category_options()
   = input f, :title
+  = input f, :slug
   = input f, :subtitle
   = input f, :description, using: :markdown
-
-  = input f, :category_id, using: :select, options: category_options()
-  = input f, :slug
 
   .admin-field
     = label f, :image, class: "admin-field__label"

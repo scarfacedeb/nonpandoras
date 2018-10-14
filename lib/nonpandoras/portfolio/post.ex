@@ -21,7 +21,7 @@ defmodule Nonpandoras.Portfolio.Post do
   end
 
   @cast_attrs ~w[title summary body slug is_published is_homepage published_at]a
-  @required_attrs ~w[slug title image]a
+  @required_attrs ~w[slug title]a
   def changeset(%__MODULE__{} = post, attrs) do
     post
     |> cast(attrs, @cast_attrs)

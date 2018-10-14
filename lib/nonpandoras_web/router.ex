@@ -17,6 +17,7 @@ defmodule NonpandorasWeb.Router do
     resources "/categories", CategoryController, only: [:show]
     resources "/artworks", ArtworkController, only: [:show]
     resources "/posts", PostController, only: [:index, :show]
+    resources "/pages", PageController, only: [:show]
   end
 
   scope "/admin", NonpandorasWeb.Admin, as: :admin do
@@ -27,5 +28,6 @@ defmodule NonpandorasWeb.Router do
     resources "/artworks", ArtworkController
     resources "/categories", CategoryController
     resources "/posts", PostController
+    resources "/pages", PageController
   end
 end

@@ -9,4 +9,6 @@ ul.nav
 
   li.nav__link= link "Audio", to: "#"
   li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)
-  li.nav__link= link "Contacts", to: "#"
+
+  = for page <- Nonpandoras.Portfolio.list_sidebar_pages() do
+    li.nav__link= link page.title, to: Routes.page_path(@conn, :show, page)

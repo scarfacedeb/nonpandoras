@@ -3,10 +3,11 @@ defmodule Nonpandoras.Portfolio do
 
   alias Nonpandoras.Repo
   alias Nonpandoras.Pagination
-  alias Nonpandoras.Portfolio.{Artwork, Category}
+  alias Nonpandoras.Portfolio.{Artwork, Category, Post, Page}
 
   def get_category!(slug), do: Repo.get_by!(Category, slug: slug)
   def get_artwork!(slug), do: Repo.get_by!(Artwork, slug: slug)
+  def get_page!(slug), do: Repo.get_by!(Page, slug: slug)
 
   def get_prev(%{id: id, category_id: category_id}) do
     Artwork
@@ -34,25 +35,16 @@ defmodule Nonpandoras.Portfolio do
     |> Repo.all()
   end
 
+  def list_sidebar_pages do
+    Page
+    |> where(is_sidebar: true)
+    |> order_by(:position)
+    |> Repo.all()
+  end
+
   def get_categories() do
     Category
     |> order_by(asc: :id)
     |> Repo.all()
-  end
-
-  def create_artwork(attrs \\ %{}) do
-    %Artwork{}
-    |> Artwork.changeset(attrs)
-    |> Repo.insert()
-  end
-
-  def update_artwork(%Artwork{} = artwork, attrs) do
-    artwork
-    |> Artwork.changeset(attrs)
-    |> Repo.update()
-  end
-
-  def delete_artwork(%Artwork{} = artwork) do
-    Repo.delete(artwork)
   end
 end

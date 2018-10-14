@@ -5,18 +5,10 @@
 
   = input f, :title
   = input f, :slug
-  = input f, :summary
   = input f, :body, using: :markdown
-
-  .admin-field
-    = label f, :image, class: "admin-field__label"
-    .admin-field__body
-      div= post_image_tag(f.source.data)
-      = file_input f, :image, class: "admin-field__input"
-      = error_tag f, :image
-
+  = input f, :position
   = input f, :is_published
-  = input f, :is_homepage
+  = input f, :is_sidebar
 
   .admin-form__actions
     = submit "Submit", class: "btn btn--primary"

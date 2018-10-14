@@ -3,7 +3,7 @@ defmodule NonpandorasWeb.PostView do
 
   def post_image_tag(%{image: image} = post) do
     img_tag(
-      Image.url("Image-000#{Enum.random([1,2,3,4,5,6])}.png?63677739391"),
+      Image.url("Image-000#{Enum.random([1, 2, 3, 4, 5, 6])}.png?63677739391"),
       alt: post.title,
       width: "300px"
     )

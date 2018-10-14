@@ -22,6 +22,7 @@ defmodule NonpandorasWeb.Admin.PostController do
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -41,6 +42,7 @@ defmodule NonpandorasWeb.Admin.PostController do
         conn
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset)
     end

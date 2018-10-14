@@ -6,7 +6,6 @@ h2 Posts
 table.admin-table
   thead
     tr
-      th Image
       th Title
       th Summary
       th Slug
@@ -17,9 +16,6 @@ table.admin-table
   tbody
     = for post <- @posts do
       tr
-        td
-          = link to: Routes.admin_post_path(@conn, :edit, post) do
-            = post_image_tag(post)
         td= post.title
         td= post.summary
         td= post.slug

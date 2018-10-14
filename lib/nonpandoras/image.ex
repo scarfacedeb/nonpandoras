@@ -20,7 +20,7 @@ defmodule Nonpandoras.Image do
   end
 
   # Override the storage directory:
-  def storage_dir(version, {file, %{slug: slug}}) when not(is_nil(slug)) do
+  def storage_dir(version, {file, %{slug: slug}}) when not is_nil(slug) do
     "uploads/artworks/#{slug}/"
   end
 

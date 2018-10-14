@@ -1,0 +1,22 @@
+h2 Pages
+
+.admin-toolbar
+  = link "New Page", to: Routes.admin_page_path(@conn, :new)
+
+table.admin-table
+  thead
+    tr
+      th Title
+      th Slug
+      th Published
+      th
+  tbody
+    = for page <- @pages do
+      tr
+        td= page.title
+        td= page.slug
+        td= page.is_published
+        td.admin-table__actions
+          = link "Show", to: Routes.page_path(@conn, :show, page), class: "btn"
+          = link "Edit", to: Routes.admin_page_path(@conn, :edit, page), class: "btn"
+          = link "Delete", to: Routes.admin_page_path(@conn, :delete, page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn--danger"

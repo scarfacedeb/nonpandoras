@@ -22,6 +22,7 @@ defmodule NonpandorasWeb.Admin.ArtworkController do
         conn
         |> put_flash(:info, "Artwork created successfully.")
         |> redirect(to: Routes.admin_artwork_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -41,6 +42,7 @@ defmodule NonpandorasWeb.Admin.ArtworkController do
         conn
         |> put_flash(:info, "Artwork updated successfully.")
         |> redirect(to: Routes.admin_artwork_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", artwork: artwork, changeset: changeset)
     end

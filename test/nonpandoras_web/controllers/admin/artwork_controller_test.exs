@@ -75,6 +75,7 @@ defmodule NonpandorasWeb.Admin.ArtworkControllerTest do
     test "deletes chosen artwork", %{conn: conn, artwork: artwork} do
       conn = delete conn, admin_artwork_path(conn, :delete, artwork)
       assert redirected_to(conn) == admin_artwork_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get conn, admin_artwork_path(conn, :show, artwork)
       end
