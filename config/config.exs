@@ -26,6 +26,8 @@ config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
 
+config :phoenix, :json_library, Jason
+
 config :phoenix_slime, :use_slim_extension, true
 
 # Storage

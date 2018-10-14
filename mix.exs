@@ -33,14 +33,15 @@ defmodule Nonpandoras.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3"},
+      {:phoenix, "~> 1.4.0-rc"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_slime, "~> 0.9"},
-      {:cowboy, "~> 1.0"},
+      {:phoenix_live_reload, "~> 1.2.0-rc.0", only: :dev},
+      {:phoenix_slime, "~> 0.10", github: "scarfacedeb/phoenix_slime", branch: "phoenix_1.4"},
+      {:jason, "~> 1.0"},
+      {:cowboy, "~> 2.5"},
       {:arc, "~> 0.8"},
       {:arc_ecto, "~> 0.7"},
       {:floki, "~> 0.20"}
