@@ -9,7 +9,7 @@ defmodule NonpandorasWeb.PostController do
   end
 
   def show(conn, %{"id" => slug}) do
-    post = Portfolio.Posts.get_post!(slug)
+    post = Portfolio.Posts.get_published_post!(slug)
     prev_post = nil
     next_post = nil
 

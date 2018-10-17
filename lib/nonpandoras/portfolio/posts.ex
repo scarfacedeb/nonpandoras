@@ -4,7 +4,7 @@ defmodule Nonpandoras.Portfolio.Posts do
   alias Nonpandoras.Repo
   alias Nonpandoras.Portfolio.Post
 
-  def get_post!(slug), do: Repo.get_by!(Post, slug: slug)
+  def get_published_post!(slug), do: Repo.get_by!(Post, slug: slug, is_published: true)
 
   def list_posts(params) do
     Post

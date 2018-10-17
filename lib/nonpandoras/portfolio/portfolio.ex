@@ -6,7 +6,8 @@ defmodule Nonpandoras.Portfolio do
 
   def get_category!(slug), do: Repo.get_by!(Category, slug: slug)
   def get_artwork!(slug), do: Repo.get_by!(Artwork, slug: slug)
-  def get_page!(slug), do: Repo.get_by!(Page, slug: slug)
+
+  def get_published_page(slug), do: Repo.get_by(Page, slug: slug, is_published: true)
 
   def get_prev(%{id: id, category_id: category_id}) do
     Artwork

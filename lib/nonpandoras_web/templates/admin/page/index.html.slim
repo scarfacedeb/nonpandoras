@@ -17,6 +17,6 @@ table.admin-table
         td= page.slug
         td= page.is_published
         td.admin-table__actions
-          = link "Show", to: Routes.page_path(@conn, :show, page), class: "btn"
+          = link "Show", to: Routes.page_path(@conn, :show, [page.slug]), class: "btn"
           = link "Edit", to: Routes.admin_page_path(@conn, :edit, page), class: "btn"
           = link "Delete", to: Routes.admin_page_path(@conn, :delete, page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn--danger"
