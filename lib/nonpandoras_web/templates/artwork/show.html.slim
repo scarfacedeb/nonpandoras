@@ -29,10 +29,12 @@
       = if @prev_artwork do
         = link to: Routes.artwork_path(@conn, :show, @prev_artwork.slug), class: "artwork__nav artwork__nav--prev" do
           = img_tag "/images/arrow.svg", alt: "Previous"
+          span= " Previous"
 
       .artwork__img
         = artwork_image_tag(@artwork)
 
       = if @next_artwork do
         = link to: Routes.artwork_path(@conn, :show, @next_artwork.slug), class: "artwork__nav artwork__nav--next" do
+          span= " Next"
           = img_tag "/images/arrow.svg", alt: "Next"
