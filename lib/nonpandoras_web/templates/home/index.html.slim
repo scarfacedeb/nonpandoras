@@ -4,12 +4,14 @@ h1.home-greeting
   | I'm a gentleman and a scholar.
 
 section.home-artworks.home-section
-  h2.home-section__title Latest works
+  h2.home-section__title
+    = link "Latest works", to: Routes.category_path(@conn, :show, "drawings")
   .artworks
     = render_many @artworks, ArtworkView, "artwork.html", conn: @conn
 
 section.home-posts.home-section
-  h2.home-section__title Latest posts
+  h2.home-section__title
+    = link "Latest posts", to: Routes.post_path(@conn, :index)
   ul.posts-list
     = for post <- @posts do
       li

@@ -1,10 +1,22 @@
 .home-greeting {
-  margin: 1.5em 0 1.4em;
+  margin: 1em 0 1.4em;
   text-align: center;
+
+  @media (min-width: 1000px) {
+    margin-top: 1.5em;
+  }
 }
 
 .home-section {
   margin-bottom: 1.5em;
+
+  &__title {
+    a {
+      &, &:hover, &:focus, &:visited {
+        color: #333;
+      }
+    }
+  }
 }
 
 .posts-list {
