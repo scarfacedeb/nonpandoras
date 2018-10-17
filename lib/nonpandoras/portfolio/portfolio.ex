@@ -32,6 +32,11 @@ defmodule Nonpandoras.Portfolio do
     |> order_by(desc: :id)
     |> Repo.paginate(params)
   end
+
+  def list_last_artworks(limit \\ 4) do
+    Artwork
+    |> order_by(desc: :id)
+    |> limit(^limit)
     |> Repo.all()
   end
 

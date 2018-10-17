@@ -4,7 +4,8 @@ defmodule NonpandorasWeb.HomeController do
   alias Nonpandoras.Portfolio
 
   def index(conn, _params) do
-    categories = Portfolio.get_categories()
-    render(conn, "index.html", categories: categories)
+    artworks = Portfolio.list_last_artworks()
+    posts = Portfolio.Posts.list_last_posts()
+    render(conn, "index.html", artworks: artworks, posts: posts)
   end
 end

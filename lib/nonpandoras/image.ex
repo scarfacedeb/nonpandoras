@@ -24,7 +24,7 @@ defmodule Nonpandoras.Image do
     "uploads/artworks/#{slug}/"
   end
 
-  def storage_dir(version, {file, _scope}) do
+  def storage_dir(_, _) do
     "uploads/artworks/error/"
   end
 

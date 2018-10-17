@@ -1,0 +1,18 @@
+h1.home-greeting
+  | My name is Roslyakov Konstantin.
+  br
+  | I'm a gentleman and a scholar.
+
+section.home-artworks.home-section
+  h2.home-section__title Latest works
+  .artworks
+    = render_many @artworks, ArtworkView, "artwork.html", conn: @conn
+
+section.home-posts.home-section
+  h2.home-section__title Latest posts
+  ul.posts-list
+    = for post <- @posts do
+      li
+        .post-item__published
+          = PostView.published_at(post)
+        = link post.title, to: Routes.post_path(@conn, :show, post)

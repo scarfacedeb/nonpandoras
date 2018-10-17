@@ -12,6 +12,12 @@ defmodule Nonpandoras.Portfolio.Posts do
     |> order_by(desc: :id)
     |> Repo.paginate(params)
   end
+
+  def list_last_posts(limit \\ 5) do
+    Post
+    |> where(is_published: true)
+    |> order_by(desc: :id)
+    |> limit(^limit)
     |> Repo.all()
   end
 end
