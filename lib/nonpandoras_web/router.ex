@@ -9,6 +9,17 @@ defmodule NonpandorasWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  scope "/admin", NonpandorasWeb.Admin, as: :admin do
+    pipe_through :browser
+
+    get "/", HomeController, :index
+
+    resources "/artworks", ArtworkController
+    resources "/categories", CategoryController
+    resources "/posts", PostController
+    resources "/pages", PageController
+  end
+
   scope "/", NonpandorasWeb do
     pipe_through :browser
 
@@ -19,16 +30,5 @@ defmodule NonpandorasWeb.Router do
     resources "/posts", PostController, only: [:index, :show]
 
     get "/*path", PageController, :show
-  end
-
-  scope "/admin", NonpandorasWeb.Admin, as: :admin do
-    pipe_through :browser
-
-    get "/", HomeController, :index
-
-    resources "/artworks", ArtworkController
-    resources "/categories", CategoryController
-    resources "/posts", PostController
-    resources "/pages", PageController
   end
 end
