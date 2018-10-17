@@ -3,7 +3,6 @@ defmodule Nonpandoras.Portfolio.Posts do
 
   alias Nonpandoras.Repo
   alias Nonpandoras.Portfolio.Post
-  alias Nonpandoras.Pagination
 
   def get_post!(slug), do: Repo.get_by!(Post, slug: slug)
 
@@ -11,7 +10,8 @@ defmodule Nonpandoras.Portfolio.Posts do
     Post
     |> where(is_published: true)
     |> order_by(desc: :id)
-    |> Pagination.paginate(params)
+    |> Repo.paginate(params)
+  end
     |> Repo.all()
   end
 end

@@ -24,3 +24,5 @@ table.admin-table
           = link "Show", to: Routes.post_path(@conn, :show, post), class: "btn"
           = link "Edit", to: Routes.admin_post_path(@conn, :edit, post), class: "btn"
           = link "Delete", to: Routes.admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn--danger"
+
+= render_pagination @posts

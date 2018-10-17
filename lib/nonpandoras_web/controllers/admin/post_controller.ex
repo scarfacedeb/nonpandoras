@@ -6,8 +6,8 @@ defmodule NonpandorasWeb.Admin.PostController do
 
   plug :put_layout, {NonpandorasWeb.LayoutView, "admin.html"}
 
-  def index(conn, _params) do
-    posts = Posts.list_posts()
+  def index(conn, params) do
+    posts = Posts.list_posts(params)
     render(conn, "index.html", posts: posts)
   end
 

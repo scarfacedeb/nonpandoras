@@ -9,10 +9,10 @@ defmodule Nonpandoras.Admin.Posts do
   alias Nonpandoras.Portfolio.Post
 
   @doc "Returns the list of posts"
-  def list_posts do
+  def list_posts(params \\ %{}) do
     Post
     |> order_by(desc: :id)
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   @doc "Gets a single post."

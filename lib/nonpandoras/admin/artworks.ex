@@ -9,10 +9,10 @@ defmodule Nonpandoras.Admin.Artworks do
   alias Nonpandoras.Portfolio.{Artwork, Category}
 
   @doc "Returns the list of artworks"
-  def list_artworks do
+  def list_artworks(params \\ %{}) do
     Artwork
     |> order_by(desc: :id)
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   @doc "Gets a single artwork."

@@ -6,8 +6,8 @@ defmodule NonpandorasWeb.Admin.ArtworkController do
 
   plug :put_layout, {NonpandorasWeb.LayoutView, "admin.html"}
 
-  def index(conn, _params) do
-    artworks = Artworks.list_artworks()
+  def index(conn, params) do
+    artworks = Artworks.list_artworks(params)
     render(conn, "index.html", artworks: artworks)
   end
 

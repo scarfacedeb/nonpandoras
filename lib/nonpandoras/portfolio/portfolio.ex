@@ -2,7 +2,6 @@ defmodule Nonpandoras.Portfolio do
   import Ecto.Query, warn: false
 
   alias Nonpandoras.Repo
-  alias Nonpandoras.Pagination
   alias Nonpandoras.Portfolio.{Artwork, Category, Post, Page}
 
   def get_category!(slug), do: Repo.get_by!(Category, slug: slug)
@@ -31,7 +30,8 @@ defmodule Nonpandoras.Portfolio do
     Artwork
     |> where(category_id: ^category_id)
     |> order_by(desc: :id)
-    |> Pagination.paginate(params)
+    |> Repo.paginate(params)
+  end
     |> Repo.all()
   end
 

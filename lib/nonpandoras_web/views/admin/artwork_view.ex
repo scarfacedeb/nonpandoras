@@ -1,6 +1,8 @@
 defmodule NonpandorasWeb.Admin.ArtworkView do
   use NonpandorasWeb, :view
   import NonpandorasWeb.Admin.FormHelpers
+  import NonpandorasWeb.Admin.ImageHelpers
+  import NonpandorasWeb.Pagination
 
   def artwork_image_tag(%{image: nil}), do: nil
 

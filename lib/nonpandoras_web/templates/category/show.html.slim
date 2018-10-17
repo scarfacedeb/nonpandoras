@@ -7,6 +7,4 @@ h1= @category.title
         = ArtworkView.artwork_image_tag artwork
         h3.artwork-item__title= artwork.title
 
-.pagination
-  = link "Prev page", to: Routes.category_path(@conn, :show, @category.slug, page: ArtworkView.prev_page(@conn))
-  = link "Next page", to: Routes.category_path(@conn, :show, @category.slug, page: ArtworkView.next_page(@conn))
+= render_pagination @artworks
