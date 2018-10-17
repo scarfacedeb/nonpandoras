@@ -9,6 +9,8 @@ defmodule Nonpandoras.Portfolio do
 
   def get_published_page(slug), do: Repo.get_by(Page, slug: slug, is_published: true)
 
+  def get_greeting, do: Repo.get_by(Page, slug: "greeting")
+
   def get_prev(%{id: id, category_id: category_id}) do
     Artwork
     |> where([a], a.id > ^id)

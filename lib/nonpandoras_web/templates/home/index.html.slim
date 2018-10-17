@@ -1,7 +1,6 @@
 h1.home-greeting
-  | My name is Roslyakov Konstantin.
-  br
-  | I'm a gentleman and a scholar.
+  = if @greeting do
+    = raw @greeting.body
 
 section.home-artworks.home-section
   h2.home-section__title
