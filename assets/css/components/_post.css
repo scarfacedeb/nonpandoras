@@ -1,9 +1,13 @@
-.post-item {
-  margin-bottom: 2em;
-  padding-bottom: 2em;
-  border-bottom: 1px solid #e5e5e5;
+.post {
+  & + & {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid #e5e5e5;
+  }
 
   &__title {
+    margin-bottom: .2em;
+
     a {
       &, &:hover, &:focus {
         color: #333;
@@ -17,5 +21,11 @@
     img {
       display: block;
     }
+  }
+
+  &__published {
+    margin-bottom: 1.5em;
+    font-size: 14px;
+    color: #666;
   }
 }

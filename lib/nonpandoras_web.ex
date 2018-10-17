@@ -45,7 +45,8 @@ defmodule NonpandorasWeb do
       alias NonpandorasWeb.{
         LayoutView,
         ArtworkView,
-        CategoryView
+        CategoryView,
+        PostView
       }
     end
   end

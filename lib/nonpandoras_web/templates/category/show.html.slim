@@ -1,10 +1,6 @@
 h1= @category.title
 
 .artworks
-  = for artwork <- @artworks do
-    article.artwork-item.artworks__item
-      = link to: Routes.artwork_path(@conn, :show, artwork.slug) do
-        = ArtworkView.artwork_image_tag artwork
-        h3.artwork-item__title= artwork.title
+  = render_many @artworks, ArtworkView, "artwork.html", conn: @conn
 
 = render_pagination @artworks

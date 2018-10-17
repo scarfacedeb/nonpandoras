@@ -1,12 +1,2 @@
 .posts
-  = for post <- @posts do
-    article.post-item
-      = if post.image do
-        .post-item__img
-          = link to: Routes.post_path(@conn, :show, post.slug) do
-            = post_image_tag(post)
-      h2.post-item__title
-        = link post.title, to: Routes.post_path(@conn, :show, post)
-      .post-item__published= published_at(post)
-      .post-item__body
-        = html_body(post)
+  = render_many @posts, PostView, "show.html", conn: @conn

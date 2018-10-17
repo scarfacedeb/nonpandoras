@@ -13,8 +13,8 @@ defmodule NonpandorasWeb.PostView do
       {:ok, html, []} ->
         raw(html)
 
-      err ->
-        "Can't render markdown"
+      _ ->
+        body
     end
   end
 

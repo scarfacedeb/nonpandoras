@@ -1,31 +1,20 @@
 defmodule NonpandorasWeb.ArtworkView do
   use NonpandorasWeb, :view
+  alias Nonpandoras.Portfolio.Artwork
 
   def artwork_image_tag(artwork) do
     img_tag(Image.url({artwork.image, artwork}), alt: artwork.title)
   end
 
-  def prev_page(%Plug.Conn{params: %{"page" => value}}) do
-    case Integer.parse(value) do
-      {page, ""} when page > 1 ->
-        page - 1
+  def html_body(%Artwork{description: nil}), do: ""
+
+  def html_body(%Artwork{description: md}) do
+    case Earmark.as_html(md) do
+      {:ok, html, []} ->
+        raw(html)
 
       _ ->
-        1
+        md
     end
   end
-
-  def prev_page(_), do: 1
-
-  def next_page(%Plug.Conn{params: %{"page" => value}}) do
-    case Integer.parse(value) do
-      {page, ""} when page > 0 ->
-        page + 1
-
-      _ ->
-        2
-    end
-  end
-
-  def next_page(_), do: 2
 end

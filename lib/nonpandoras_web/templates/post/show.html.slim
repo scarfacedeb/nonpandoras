@@ -1,9 +1,12 @@
-.page.post
-  h1.page__title.post__title
-    = @post.title
+article.post
+  = if @post.image do
+    .post__img
+      = link to: Routes.post_path(@conn, :show, @post) do
+        = post_image_tag(@post)
 
-  .post__img
-    = post_image_tag(@post)
+  h2.post__title
+    = link @post.title, to: Routes.post_path(@conn, :show, @post)
+  .post__published= published_at(@post)
 
   .post__body
-    = raw @post.body
+    = html_body(@post)
