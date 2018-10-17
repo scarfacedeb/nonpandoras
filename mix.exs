@@ -44,7 +44,10 @@ defmodule Nonpandoras.Mixfile do
       {:cowboy, "~> 2.5"},
       {:arc, "~> 0.8"},
       {:arc_ecto, "~> 0.7"},
-      {:floki, "~> 0.20"}
+      {:earmark, "~> 1.2"},
+      {:timex, "~> 3.4"},
+      {:scrivener_html, "~> 1.7"},
+      {:scrivener_ecto, "~> 1.0"}
     ]
   end
 

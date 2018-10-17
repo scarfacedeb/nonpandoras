@@ -1,7 +1,21 @@
 .post-item {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e5e5e5;
+
+  &__title {
+    a {
+      &, &:hover, &:focus {
+        color: #333;
+      }
+    }
+  }
+
   &__img {
+    margin-bottom: 1em;
+
     img {
-      max-width: 200px;
+      display: block;
     }
   }
 }

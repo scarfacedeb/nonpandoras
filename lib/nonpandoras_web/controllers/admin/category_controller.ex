@@ -18,7 +18,7 @@ defmodule NonpandorasWeb.Admin.CategoryController do
 
   def create(conn, %{"category" => category_params}) do
     case Categories.create_category(category_params) do
-      {:ok, category} ->
+      {:ok, _category} ->
         conn
         |> put_flash(:info, "Category created successfully.")
         |> redirect(to: Routes.admin_category_path(conn, :index))
@@ -38,7 +38,7 @@ defmodule NonpandorasWeb.Admin.CategoryController do
     category = Categories.get_category!(id)
 
     case Categories.update_category(category, category_params) do
-      {:ok, category} ->
+      {:ok, _category} ->
         conn
         |> put_flash(:info, "Category updated successfully.")
         |> redirect(to: Routes.admin_category_path(conn, :index))

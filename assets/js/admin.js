@@ -16,6 +16,6 @@ ready(() => {
   const inputs = document.querySelectorAll('.editor');
 
   Array.from(inputs).forEach(input => {
-    new SimpleMDE({ element: input })
+    new SimpleMDE({ element: input, spellChecker: false })
   });
 });

@@ -1,5 +1,7 @@
 defmodule NonpandorasWeb.Admin.FormHelpers do
   use Phoenix.HTML
+  import NonpandorasWeb.Admin.ImageHelpers
+  import NonpandorasWeb.ErrorHelpers
 
   def input(form, field, opts \\ []) do
     {type, opts} = Keyword.pop(opts, :using, Phoenix.HTML.Form.input_type(form, field))
@@ -15,7 +17,7 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
       control =
         content_tag :div, control_opts do
           input = input(type, form, field, input_opts)
-          error = NonpandorasWeb.ErrorHelpers.error_tag(form, field)
+          error = error_tag(form, field)
           [input, error || ""]
         end
 
@@ -32,6 +34,17 @@ defmodule NonpandorasWeb.Admin.FormHelpers do
   defp input(:markdown, form, field, input_opts) do
     input_opts = input_opts |> add_class("editor")
     apply(Phoenix.HTML.Form, :textarea, [form, field, input_opts])
+  end
+
+  defp input(:image, form, field, _input_opts) do
+    content_tag :div, class: "admin-field__body" do
+      [
+        uploaded_image(form, field),
+        delete_image_input(form, field),
+        file_input(form, field, class: "admin-field__input"),
+        error_tag(form, field)
+      ]
+    end
   end
 
   defp input(type, form, field, input_opts) do

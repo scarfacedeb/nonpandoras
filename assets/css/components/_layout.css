@@ -20,7 +20,14 @@
     }
 
     &--admin {
-      background: rgba(5, 212, 255, 0.76);
+      background: linear-gradient(to bottom, #323232, #0e0e0e);
+
+      .nav__link a,
+      .logo {
+        &, &:hover, &:focus {
+          color: #fff;
+        }
+      }
     }
   }
 

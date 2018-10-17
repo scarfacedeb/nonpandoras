@@ -5,6 +5,7 @@
 @import "components/layout";
 @import "components/logo";
 @import "components/nav";
+@import "components/pagination";
 
 h2 {
   font-family: 'futura-pt', Helvetica, Arial, sans-serif;

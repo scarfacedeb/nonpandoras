@@ -18,7 +18,7 @@ defmodule NonpandorasWeb.Admin.PageController do
 
   def create(conn, %{"page" => page_params}) do
     case Pages.create_page(page_params) do
-      {:ok, page} ->
+      {:ok, _page} ->
         conn
         |> put_flash(:info, "Page created successfully.")
         |> redirect(to: Routes.admin_page_path(conn, :index))
@@ -38,7 +38,7 @@ defmodule NonpandorasWeb.Admin.PageController do
     page = Pages.get_page!(id)
 
     case Pages.update_page(page, page_params) do
-      {:ok, page} ->
+      {:ok, _page} ->
         conn
         |> put_flash(:info, "Page updated successfully.")
         |> redirect(to: Routes.admin_page_path(conn, :index))

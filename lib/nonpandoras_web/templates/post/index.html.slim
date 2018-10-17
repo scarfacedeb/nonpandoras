@@ -1,11 +1,12 @@
-.post-tiles
+.posts
   = for post <- @posts do
-    artwork.post-item.post-tiles__item
-      .post-item__img
-        = link to: Routes.post_path(@conn, :show, post.slug) do
-          = post_image_tag(post)
-      h3.post-item__title
-        = link post.title, to: Routes.post_path(@conn, :show, post.slug)
-      .post-item__summary= post.summary
-      .post-item__published= post.published_at
-
+    article.post-item
+      = if post.image do
+        .post-item__img
+          = link to: Routes.post_path(@conn, :show, post.slug) do
+            = post_image_tag(post)
+      h2.post-item__title
+        = link post.title, to: Routes.post_path(@conn, :show, post)
+      .post-item__published= published_at(post)
+      .post-item__body
+        = html_body(post)

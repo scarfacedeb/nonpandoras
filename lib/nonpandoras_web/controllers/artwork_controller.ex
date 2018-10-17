@@ -2,7 +2,6 @@ defmodule NonpandorasWeb.ArtworkController do
   use NonpandorasWeb, :controller
 
   alias Nonpandoras.Portfolio
-  alias Nonpandoras.Portfolio.Artwork
 
   def show(conn, %{"id" => slug}) do
     artwork = Portfolio.get_artwork!(slug)

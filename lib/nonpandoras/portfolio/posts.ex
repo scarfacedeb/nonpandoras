@@ -9,6 +9,7 @@ defmodule Nonpandoras.Portfolio.Posts do
 
   def list_posts(params) do
     Post
+    |> where(is_published: true)
     |> order_by(desc: :id)
     |> Pagination.paginate(params)
     |> Repo.all()

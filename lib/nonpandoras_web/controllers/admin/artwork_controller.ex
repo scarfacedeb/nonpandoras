@@ -18,7 +18,7 @@ defmodule NonpandorasWeb.Admin.ArtworkController do
 
   def create(conn, %{"artwork" => artwork_params}) do
     case Artworks.create_artwork(artwork_params) do
-      {:ok, artwork} ->
+      {:ok, _artwork} ->
         conn
         |> put_flash(:info, "Artwork created successfully.")
         |> redirect(to: Routes.admin_artwork_path(conn, :index))
@@ -38,7 +38,7 @@ defmodule NonpandorasWeb.Admin.ArtworkController do
     artwork = Artworks.get_artwork!(id)
 
     case Artworks.update_artwork(artwork, artwork_params) do
-      {:ok, artwork} ->
+      {:ok, _artwork} ->
         conn
         |> put_flash(:info, "Artwork updated successfully.")
         |> redirect(to: Routes.admin_artwork_path(conn, :index))

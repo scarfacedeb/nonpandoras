@@ -18,7 +18,7 @@ defmodule NonpandorasWeb.Admin.PostController do
 
   def create(conn, %{"post" => post_params}) do
     case Posts.create_post(post_params) do
-      {:ok, post} ->
+      {:ok, _post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :index))
@@ -38,7 +38,7 @@ defmodule NonpandorasWeb.Admin.PostController do
     post = Posts.get_post!(id)
 
     case Posts.update_post(post, post_params) do
-      {:ok, post} ->
+      {:ok, _post} ->
         conn
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :index))
