@@ -3,11 +3,10 @@
   h1= "Nonpandoras"
 
 ul.nav
-  = for category <- Nonpandoras.Portfolio.get_categories() do
-    li.nav__link
-      = link category.title, to: Routes.category_path(@conn, :show, category)
+  = for category <- sidebar_categories() do
+    = nav_link @conn, category.title, Routes.category_path(@conn, :show, category)
 
-  li.nav__link= link "Blog", to: Routes.post_path(@conn, :index)
+  = nav_link @conn, "Blog", Routes.post_path(@conn, :index)
 
-  = for page <- Nonpandoras.Portfolio.list_sidebar_pages() do
-    li.nav__link= link page.title, to: Routes.page_path(@conn, :show, page)
+  = for page <- sidebar_pages() do
+    = nav_link @conn, page.title, Routes.page_path(@conn, :show, [page.slug])
