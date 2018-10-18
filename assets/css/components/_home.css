@@ -1,6 +1,11 @@
 .home-greeting {
   margin: 1em 0 1.4em;
   text-align: center;
+  font-size: 32px;
+
+  @media (min-width: 780px) {
+    font-size: 48px;
+  }
 
   @media (min-width: 1000px) {
     margin-top: 1.5em;
@@ -26,7 +31,7 @@
 
   li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: .75em;
   }
 

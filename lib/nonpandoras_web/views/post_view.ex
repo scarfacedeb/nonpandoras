@@ -19,7 +19,7 @@ defmodule NonpandorasWeb.PostView do
   end
 
   def published_at(%Post{published_at: ts}) do
-    case Timex.format(ts, "{0D}/{0M}/{YYYY} {h24}:{m}") do
+    case Timex.format(ts, "{0D}/{0M}/{YYYY}") do
       {:ok, formatted} -> formatted
       _ -> ""
     end

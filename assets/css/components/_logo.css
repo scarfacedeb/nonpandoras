@@ -6,6 +6,7 @@
 
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 
   @media (min-width: 1200px) {
     display: block;
@@ -13,8 +14,12 @@
 
   img {
     display: block;
-    width: 60px;
+    width: 40px;
     transition: transform .5s ease-in-out;
+
+    @media (min-width: 480px) {
+      width: 60px;
+    }
 
     @media (min-width: 1200px) {
       width: 140px;
