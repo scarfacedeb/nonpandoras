@@ -11,7 +11,10 @@ defmodule NonpandorasWeb.Endpoint do
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
-  plug Plug.Static, at: "/uploads", from: Path.expand("./uploads"), gzip: false
+  plug Plug.Static,
+    at: "/uploads",
+    from: Application.get_env(:nonpandoras, :uploads_dir),
+    gzip: false
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -27,7 +30,7 @@ defmodule NonpandorasWeb.Endpoint do
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
 
   plug Plug.MethodOverride
   plug Plug.Head

@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :nonpandoras,
-  ecto_repos: [Nonpandoras.Repo]
+  ecto_repos: [Nonpandoras.Repo],
+  uploads_dir: Path.expand("./uploads")
 
 # Configures the endpoint
 config :nonpandoras, NonpandorasWeb.Endpoint,

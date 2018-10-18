@@ -20,12 +20,22 @@ defmodule Nonpandoras.Image do
   end
 
   # Override the storage directory:
-  def storage_dir(version, {file, %{slug: slug}}) when not is_nil(slug) do
-    "uploads/artworks/#{slug}/"
+  def storage_dir(_version, {_file, %{slug: slug}}) when not is_nil(slug) do
+    dir = Application.get_env(:nonpandoras, :uploads_dir)
+    Path.join([dir, "artworks", slug])
   end
 
   def storage_dir(_, _) do
-    "uploads/artworks/error/"
+    dir = Application.get_env(:nonpandoras, :uploads_dir)
+    Path.join([dir, "errors"])
+  end
+
+  def url_dir(_version, {_file, %{slug: slug}}) do
+    Path.join(["uploads", "artworks", slug])
+  end
+
+  def url_dir(_version, _) do
+    Path.join(["uploads", "errors"])
   end
 
   # Provide a default URL if there hasn't been a file uploaded
