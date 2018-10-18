@@ -33,7 +33,7 @@ config :phoenix_slime, :use_slim_extension, true
 
 # Storage
 config :arc,
-  storage: Arc.Storage.Local
+  storage: Arc.Storage.LocalUrl
 
 # Pagination
 config :scrivener_html, view_style: :semantic
