@@ -11,7 +11,7 @@ defmodule Mix.Tasks.Nonpandoras.Seeds do
 
   def run(_) do
     ensure_started(Repo, [])
-    upload_images
+    upload_images()
   end
 
   defp upload_images do

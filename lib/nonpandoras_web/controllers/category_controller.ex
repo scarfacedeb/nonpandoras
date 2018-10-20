@@ -2,7 +2,6 @@ defmodule NonpandorasWeb.CategoryController do
   use NonpandorasWeb, :controller
 
   alias Nonpandoras.Portfolio
-  alias Nonpandoras.Portfolio.Category
 
   def show(conn, %{"id" => slug} = params) do
     category = Portfolio.get_category!(slug)

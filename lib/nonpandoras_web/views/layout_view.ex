@@ -1,8 +1,6 @@
 defmodule NonpandorasWeb.LayoutView do
   use NonpandorasWeb, :view
 
-  @current "nav__link--current"
-
   def sidebar_categories do
     Nonpandoras.Portfolio.get_categories()
   end
