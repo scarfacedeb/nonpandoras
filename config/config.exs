@@ -8,7 +8,12 @@ use Mix.Config
 # General application configuration
 config :nonpandoras,
   ecto_repos: [Nonpandoras.Repo],
-  uploads_dir: Path.expand("./uploads")
+  uploads_dir: Path.expand("./uploads"),
+  admin_auth: [
+    username: "admin",
+    password: "123123",
+    realm: "Admin Area"
+  ]
 
 # Configures the endpoint
 config :nonpandoras, NonpandorasWeb.Endpoint,

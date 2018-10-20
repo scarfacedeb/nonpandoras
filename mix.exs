@@ -47,7 +47,8 @@ defmodule Nonpandoras.Mixfile do
       {:earmark, "~> 1.2"},
       {:timex, "~> 3.4"},
       {:scrivener_html, "~> 1.7"},
-      {:scrivener_ecto, "~> 1.0"}
+      {:scrivener_ecto, "~> 1.0"},
+      {:basic_auth, "~> 2.2"}
     ]
   end
 

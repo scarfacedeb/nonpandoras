@@ -9,8 +9,12 @@ defmodule NonpandorasWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :admin do
+    plug BasicAuth, use_config: {:nonpandoras, :admin_auth}
+  end
+
   scope "/admin", NonpandorasWeb.Admin, as: :admin do
-    pipe_through :browser
+    pipe_through [:browser, :admin]
 
     get "/", HomeController, :index
 
