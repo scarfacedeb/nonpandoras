@@ -7,6 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :nonpandoras,
+  environment: Mix.env(),
   ecto_repos: [Nonpandoras.Repo],
   uploads_dir: Path.expand("./uploads"),
   admin_auth: [

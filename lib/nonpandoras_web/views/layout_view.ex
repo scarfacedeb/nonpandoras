@@ -1,6 +1,12 @@
 defmodule NonpandorasWeb.LayoutView do
   use NonpandorasWeb, :view
 
+  def render_ga do
+    if Nonpandoras.Application.env() == :prod do
+      render __MODULE__, "_ga.html", []
+    end
+  end
+
   def sidebar_categories do
     Nonpandoras.Portfolio.get_categories()
   end

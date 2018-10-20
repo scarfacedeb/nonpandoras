@@ -17,3 +17,5 @@ html lang="en"
         = get_flash(@conn, :info)
         = get_flash(@conn, :error)
         = render @view_module, @view_template, assigns
+
+    = render_ga

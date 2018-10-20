@@ -15,4 +15,8 @@ defmodule Nonpandoras.Application do
     NonpandorasWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  def env do
+    Application.get_env(:nonpandoras, :environment)
+  end
 end
