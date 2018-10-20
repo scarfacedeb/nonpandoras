@@ -18,12 +18,7 @@
           dd= @artwork.technique
 
           dt= "Dimensions"
-          dd.artwork__dimensions
-            = @artwork.dimensions
-            span= " (not framed)"
-          dd.artwork__dimensions
-            = @artwork.framed_dimensions
-            span= " (framed)"
+          dd= @artwork.dimensions
 
     .artwork__img-block
       = if @prev_artwork do

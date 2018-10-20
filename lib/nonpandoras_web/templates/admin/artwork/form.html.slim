@@ -4,23 +4,17 @@
       p Oops, something went wrong! Please check the errors below.
 
   = input f, :category_id, using: :select, options: category_options()
+
   = input f, :title
   = input f, :slug
   = input f, :subtitle
-  = input f, :description, using: :markdown
-
-  .admin-field
-    = label f, :image, class: "admin-field__label"
-    .admin-field__body
-      div= artwork_image_tag(f.source.data)
-      = file_input f, :image, class: "admin-field__input"
-      = error_tag f, :image
 
   = input f, :year
   = input f, :technique
-
   = input f, :dimensions
-  = input f, :framed_dimensions
+
+  = input f, :image, using: :image
+  = input f, :description, using: :markdown
 
   .admin-form__actions
-    = submit "Submit", class: "btn btn--primary"
+    = submit "Save", class: "btn btn--primary"

@@ -157,7 +157,7 @@
       left: 0;
 
       &:hover, &:focus {
-        background: linear-gradient(to right, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0));
+        background: linear-gradient(to right, rgba(255,255,255,0.9) 60%, rgba(255,255,255,0));
 
         img {
           transform: translateX(.5em);
@@ -204,14 +204,4 @@
       margin: .2em 0 0;
     }
   }
-
-  &__dimensions {
-    span {
-      margin-left: .2em;
-      font-size: 14px;
-      color: #555;
-    }
-  }
-
-
 }

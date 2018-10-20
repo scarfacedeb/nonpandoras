@@ -8,9 +8,7 @@
   = input f, :is_published
   = input f, :summary
   = input f, :body, using: :markdown
-
-  .admin-field
-    = input f, :image, using: :image
+  = input f, :image, using: :image
 
   .admin-form__actions
-    = submit "Submit", class: "btn btn--primary"
+    = submit "Save", class: "btn btn--primary"

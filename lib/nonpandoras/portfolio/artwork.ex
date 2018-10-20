@@ -15,21 +15,17 @@ defmodule Nonpandoras.Portfolio.Artwork do
     field :year, :string
     field :technique, :string
     field :dimensions, :string
-    field :framed_dimensions, :string
 
     field :slug, :string
     field :is_published, :boolean, default: true
     field :image, Nonpandoras.Image.Type
-
-    field :is_available, :boolean, default: false
-    field :price_kopeks, :integer
 
     belongs_to :category, Category
 
     timestamps()
   end
 
-  @cast_attrs ~w[category_id slug is_published year dimensions framed_dimensions is_available price_kopeks title subtitle description technique]a
+  @cast_attrs ~w[category_id slug is_published year dimensions title subtitle description technique]a
   @required_attrs ~w[category_id slug image title]a
   def changeset(%Artwork{} = artwork, attrs) do
     artwork
