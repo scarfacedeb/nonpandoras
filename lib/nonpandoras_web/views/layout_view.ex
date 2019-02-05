@@ -8,7 +8,7 @@ defmodule NonpandorasWeb.LayoutView do
   end
 
   def sidebar_categories do
-    Nonpandoras.Portfolio.get_categories()
+    Nonpandoras.Portfolio.list_published_categories()
   end
 
   def sidebar_pages do

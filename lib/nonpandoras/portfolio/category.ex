@@ -14,13 +14,14 @@ defmodule Nonpandoras.Portfolio.Category do
     field :slug, :string
     field :image, Nonpandoras.Image.Type
     field :position, :integer
+    field :is_published, :boolean, default: true
 
     has_many :artworks, Artwork
 
     timestamps()
   end
 
-  @cast_attrs ~w[slug position title description]a
+  @cast_attrs ~w[slug position title description is_published]a
   @required_attrs ~w[slug image title]a
   def changeset(%Category{} = category, attrs) do
     category
