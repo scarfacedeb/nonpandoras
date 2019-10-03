@@ -12,12 +12,15 @@ defmodule Nonpandoras.Image do
   def transform(:"tile_1.5", _), do: resize(1.5)
   def transform(:tile_2, _), do: resize(2)
   def transform(:tile_3, _), do: resize(3)
-  def transform(:thumb, _), do: resize(1, 250)
+
+  def transform(:thumb, _) do
+    {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250 -format png", :png}
+  end
 
   defp resize(px_density \\ 1, base_size \\ @tile_1x) do
     size = ceil(base_size * px_density)
     dims = "#{size}x#{size}"
-    {:convert, "-strip -thumbnail #{dims}^ -gravity center -extent #{dims} -format png", :png}
+    {:convert, "-strip -resize #{dims} -gravity center -format png", :png}
   end
 
   # Override the persisted filenames:
