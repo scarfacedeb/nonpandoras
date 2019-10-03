@@ -2,16 +2,22 @@ defmodule Nonpandoras.Image do
   use Arc.Definition
   use Arc.Ecto.Definition
 
-  @versions [:original, :thumb]
+  @tile_1x 340
+  @tiles [1, 1.5, 2, 3] |> Enum.map(&{&1, :"tile_#{&1}"})
+  @versions [:original, :thumb] ++ Enum.map(@tiles, &elem(&1, 1))
 
-  # Whitelist file extensions:
-  # def validate({file, _}) do
-  #   ~w(.jpg .jpeg .gif .png) |> Enum.member?(Path.extname(file.file_name))
-  # end
+  def tiles, do: @tiles
 
-  # Define a thumbnail transformation:
-  def transform(:thumb, _) do
-    {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250 -format png", :png}
+  def transform(:tile_1, _), do: resize(1)
+  def transform(:"tile_1.5", _), do: resize(1.5)
+  def transform(:tile_2, _), do: resize(2)
+  def transform(:tile_3, _), do: resize(3)
+  def transform(:thumb, _), do: resize(1, 250)
+
+  defp resize(px_density \\ 1, base_size \\ @tile_1x) do
+    size = ceil(base_size * px_density)
+    dims = "#{size}x#{size}"
+    {:convert, "-strip -thumbnail #{dims}^ -gravity center -extent #{dims} -format png", :png}
   end
 
   # Override the persisted filenames:

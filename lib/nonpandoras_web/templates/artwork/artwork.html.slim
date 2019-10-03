@@ -1,4 +1,4 @@
 article.artwork-item.artworks__item
   = link to: Routes.artwork_path(@conn, :show, @artwork) do
-    = ArtworkView.artwork_image_tag @artwork
+    = ArtworkView.artwork_tile_image_tag @artwork
     h2.artwork-item__title= @artwork.title
