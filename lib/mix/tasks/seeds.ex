@@ -1,16 +1,14 @@
 defmodule Mix.Tasks.Nonpandoras.Seeds do
   use Mix.Task
-  import Mix.Ecto
 
   alias Nonpandoras.Repo
-  alias Nonpandoras.Portfolio
   alias Nonpandoras.Portfolio.Artwork
 
   @shortdoc "Import initial seeds"
   @files_dir Path.expand("./materials/")
 
   def run(_) do
-    ensure_started(Repo, [])
+    Mix.Task.run "app.start"
     upload_images()
   end
 

@@ -52,7 +52,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :nonpandoras, Nonpandoras.Repo,
-  adapter: Ecto.Adapters.Postgres,
   username: "scarfacedeb",
   password: "",
   database: "nonpandoras_dev",
