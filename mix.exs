@@ -50,7 +50,8 @@ defmodule Nonpandoras.Mixfile do
       {:timex, "~> 3.4"},
       {:scrivener_html, "~> 1.7"},
       {:scrivener_ecto, "~> 2.2"},
-      {:basic_auth, "~> 2.2"}
+      {:basic_auth, "~> 2.2"},
+      {:tracer, "~> 0.1"}
     ]
   end
 
