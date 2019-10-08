@@ -14,7 +14,7 @@ defmodule Nonpandoras.Portfolio.Post do
     field :image, Nonpandoras.Image.Type
 
     field :is_published, :boolean
-    field :published_at, :utc_datetime
+    field :published_at, :utc_datetime_usec
 
     timestamps()
   end
