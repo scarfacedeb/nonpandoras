@@ -1,9 +1,9 @@
 defmodule NonpandorasWeb.LayoutView do
   use NonpandorasWeb, :view
 
-  def render_ga do
+  def render_metrics do
     if Nonpandoras.Application.env() == :prod do
-      render __MODULE__, "_ga.html", []
+      render __MODULE__, "_metrics.html", []
     end
   end
 
